@@ -1,4 +1,4 @@
----@diagnostic disable: unused-local
+---@diagnostic disable: unused-local, undefined-global
 return {
     {
         "mason-org/mason.nvim",
@@ -10,10 +10,22 @@ return {
         "mason-org/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "ts_ls", "html" },
+                ensure_installed = { "lua_ls", "ts_ls", "html", "svelte", "intelephense", "astro", "cssls", "tailwindcss", "eslint", "pylsp", "ruff" },
                 automatic_enable = true,
             })
         end,
+    },
+    {
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        config = function()
+            local mason_tool = require("mason-tool-installer")
+
+            mason_tool.setup({
+                ensure_installed = {
+                    "prettier", "prettierd", "stylua", "pylint", "eslint_d", "isort", "autopep8"
+                }
+            })
+        end
     },
     {
         "neovim/nvim-lspconfig",
