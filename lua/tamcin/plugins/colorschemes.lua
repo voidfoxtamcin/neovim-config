@@ -1,23 +1,26 @@
 return {
     {
+        "navarasu/onedark.nvim",
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            require("onedark").setup({
+                style = "deep",
+            })
+            -- Enable theme
+            require("onedark").load()
+        end,
+    },
+    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
-        enabled = true,
+        enabled = false,
         opts = {
             flavor = "macchiato",
             transparent_background = vim.g.transparent_enabled,
         },
         config = function()
             vim.cmd.colorscheme("catppuccin")
-        end,
-    },
-    {
-        "rebelot/kanagawa.nvim",
-        priority = 1000,
-        enabled = false,
-        config = function()
-            vim.cmd.colorscheme("kanagawa")
         end,
     },
     {
@@ -38,11 +41,6 @@ return {
             vim.o.background = "dark"
             vim.cmd.colorscheme("gruvbox")
         end,
-        opts = {},
-    },
-    {
-        "xiyaowong/transparent.nvim",
-        lazy = false,
         opts = {},
     },
 }
