@@ -1,5 +1,8 @@
+---@diagnostic disable: undefined-global
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.sidescrolloff = 8
 vim.opt.scrolloff = 8
 vim.opt.wrap = false
 vim.opt.termguicolors = true
