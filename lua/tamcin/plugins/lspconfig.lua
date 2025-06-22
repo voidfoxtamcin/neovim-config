@@ -10,7 +10,19 @@ return {
         "mason-org/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "ts_ls", "html", "svelte", "intelephense", "astro", "cssls", "tailwindcss", "eslint", "pylsp", "ruff" },
+                ensure_installed = {
+                    "lua_ls",
+                    "ts_ls",
+                    "html",
+                    "svelte",
+                    "intelephense",
+                    "astro",
+                    "cssls",
+                    "tailwindcss",
+                    "eslint",
+                    "pylsp",
+                    "ruff",
+                },
                 automatic_enable = true,
             })
         end,
@@ -22,10 +34,16 @@ return {
 
             mason_tool.setup({
                 ensure_installed = {
-                    "prettier", "prettierd", "stylua", "pylint", "eslint_d", "isort", "autopep8"
-                }
+                    "prettier",
+                    "prettierd",
+                    "stylua",
+                    "pylint",
+                    "eslint_d",
+                    "isort",
+                    "autopep8",
+                },
             })
-        end
+        end,
     },
     {
         "neovim/nvim-lspconfig",
@@ -48,6 +66,8 @@ return {
                 map("n", "<leader>gd", "<cmd>Telescope lsp_definitions<cr>", opts)
                 opts.desc = "Hover action"
                 map("n", "K", vim.lsp.buf.hover, opts)
+                opts.desc = "Signature Help"
+                map("n", "<C-k>", vim.lsp.buf.signature_help, opts)
             end
 
             local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -77,7 +97,7 @@ return {
             lsp.tailwindcss.setup({ capabilities = capabilities, on_attach = on_attach })
             lsp.eslint.setup({ capabilities = capabilities, on_attach = on_attach })
             lsp.pylsp.setup({ capabilities = capabilities, on_attach = on_attach })
-            -- lsp.ruff.setup({ capabilities = capabilities, on_attach = on_attach })
+            lsp.ruff.setup({ capabilities = capabilities, on_attach = on_attach })
             lsp.svelte.setup({ capabilities = capabilities, on_attach = on_attach })
         end,
     },
