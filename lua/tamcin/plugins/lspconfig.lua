@@ -12,6 +12,7 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
+                    "emmet_language_server",
                     "ts_ls",
                     "html",
                     "svelte",
@@ -22,6 +23,7 @@ return {
                     "eslint",
                     "pylsp",
                     "ruff",
+                    "twiggy_language_server",
                 },
                 automatic_enable = true,
             })
@@ -41,6 +43,7 @@ return {
                     "eslint_d",
                     "isort",
                     "autopep8",
+                    "djlint",
                 },
             })
         end,
@@ -92,6 +95,11 @@ return {
             lsp.ts_ls.setup({ capabilities = capabilities, on_attach = on_attach })
             lsp.html.setup({ capabilities = capabilities, on_attach = on_attach })
             lsp.intelephense.setup({ capabilities = capabilities, on_attach = on_attach })
+            lsp.emmet_language_server.setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+                filetypes = { "html", "css", "javascript", "typescript", "astro", "twig" },
+            })
             lsp.astro.setup({ capabilities = capabilities, on_attach = on_attach })
             lsp.cssls.setup({ capabilities = capabilities, on_attach = on_attach })
             lsp.tailwindcss.setup({ capabilities = capabilities, on_attach = on_attach })
@@ -99,6 +107,7 @@ return {
             lsp.pylsp.setup({ capabilities = capabilities, on_attach = on_attach })
             lsp.ruff.setup({ capabilities = capabilities, on_attach = on_attach })
             lsp.svelte.setup({ capabilities = capabilities, on_attach = on_attach })
+            lsp.twiggy_language_server.setup({ capabilities = capabilities, on_attach = on_attach })
         end,
     },
 }

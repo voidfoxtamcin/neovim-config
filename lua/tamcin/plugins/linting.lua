@@ -14,7 +14,7 @@ return {
             javascriptreact = { "eslint_d" },
             typescriptreact = { "eslint_d" },
             svelte = { "eslint_d" },
-            -- lua = { "selene" }
+            htmldjango = { "djlint" },
         }
 
         local lint_augroup = vim.api.nvim_create_augroup("link", { clear = true })
@@ -23,7 +23,7 @@ return {
             group = lint_augroup,
             callback = function()
                 lint.try_lint()
-            end
+            end,
         })
-    end
+    end,
 }

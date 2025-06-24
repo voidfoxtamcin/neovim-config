@@ -21,6 +21,7 @@ return {
                     jsonc = "json",
                     yaml = "yaml",
                     astro = "astro",
+                    twig = "twig",
                 },
             },
         }
@@ -31,11 +32,13 @@ return {
                 typescript = { "prettier" },
                 css = { "prettier" },
                 html = { "prettier" },
+                htmldjango = { "prettier" },
                 javascriptreact = { "prettier" },
                 typescriptreact = { "prettier" },
                 svelte = { "prettier" },
                 lua = { "stylua" },
                 python = { "autopep8", "black" },
+                twig = { "djlint" },
             },
             format_on_save = {
                 lsp_fallback = true,
@@ -44,12 +47,12 @@ return {
             },
         })
 
-        -- vim.keymap.set({ "n", "v" }, "<leader>fp", function()
-        --   conform.format({
-        --     lsp_fallback = true,
-        --     async = false,
-        --     timeout_ms = 500,
-        --   }, { desc = "Format file" })
-        -- end)
+        vim.keymap.set({ "n", "v" }, "<leader>fp", function()
+            conform.format({
+                lsp_fallback = true,
+                async = false,
+                timeout_ms = 500,
+            }, { desc = "Format file" })
+        end)
     end,
 }
