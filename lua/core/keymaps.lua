@@ -27,7 +27,7 @@ map("n", "<leader>wk", "<C-w>k", default)
 map("n", "<leader>wl", "<C-w>l", default)
 
 -- Oil
-map("n", "\\", "<cmd>Oil --float<cr>", default)
+map("n", "<leader>b", "<cmd>Oil --float<cr>", default)
 
 -- LSP Stuff
 default.desc = "Code Actions"
